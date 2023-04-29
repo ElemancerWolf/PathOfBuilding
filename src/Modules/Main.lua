@@ -43,14 +43,6 @@ function main:Init()
 	self.modes = { }
 	self.modes["LIST"] = LoadModule("Modules/BuildList")
 	self.modes["BUILD"] = LoadModule("Modules/Build")
-
-	if launch.devMode or (GetScriptPath() == GetRuntimePath() and not launch.installedMode) then
-		-- If running in dev mode or standalone mode, put user data in the script path
-		self.userPath = GetScriptPath().."/"
-	else
-		self.userPath = GetUserPath().."/Path of Building/"
-		MakeDir(self.userPath)
-	end
 	self.defaultBuildPath = self.userPath.."Builds/"
 	self.buildPath = self.defaultBuildPath
 	MakeDir(self.buildPath)
